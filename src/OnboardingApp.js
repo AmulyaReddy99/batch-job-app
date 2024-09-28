@@ -30,7 +30,12 @@ const move = (source, destination, droppableSource, droppableDestination) => {
 const grid = 8;
 
 function OnboardingApp() {
-  const [state, setState] = useState([getItems(10), getItems(5, 10), getItems(1, 15, '#e6fff3'), getItems(1, 16, '#ffe6e6')]);
+  const [state, setState] = useState([
+    getItems(10, 'Todo'), 
+    getItems(5, 'Inporgress', 10), 
+    getItems(1, 'Completed', 15, '#e6fff3'), 
+    getItems(1, 'Failed', 16, '#ffe6e6')
+  ]);
   const [offset, setOffset] = useState(16);
 
   function onDragEnd(result) {
@@ -89,6 +94,7 @@ function OnboardingApp() {
                   style={getListStyle(grid, el[0]?.background, snapshot.isDraggingOver)}
                   {...provided.droppableProps}
                 >
+                  <p>{el[0]?.status}</p>
                   {el.map((item, index) => (
                     <Draggable
                       key={item.id}

@@ -17,11 +17,12 @@ export const getListStyle = (grid, background, isDraggingOver) => ({
     width: 250
 });
 
-export const getItems = (count, offset = 0, background = 'white') =>
+export const getItems = (count, status, offset = 0, background = 'white') =>
     Array.from({ length: count }, (v, k) => k).map(k => ({
       id: `item-${k + offset}-${new Date().getTime()}`,
       content: `Batch Job ${k + offset}`,
       background,
       startDate: moment(new Date()).format('DD-MM-YY'),
-      endDate: moment(new Date()).format('DD-MM-YY')
+      endDate: moment(new Date()).format('DD-MM-YY'),
+      status
 }));
