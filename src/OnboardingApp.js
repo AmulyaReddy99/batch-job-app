@@ -30,8 +30,8 @@ const move = (source, destination, droppableSource, droppableDestination) => {
 const grid = 8;
 
 function OnboardingApp() {
-  const [state, setState] = useState([getItems(10), getItems(5, 10)]);
-  const [offset, setOffset] = useState(15);
+  const [state, setState] = useState([getItems(10), getItems(5, 10), getItems(1, 15, '#e6fff3'), getItems(1, 16, '#ffe6e6')]);
+  const [offset, setOffset] = useState(16);
 
   function onDragEnd(result) {
     const { source, destination } = result;
@@ -86,7 +86,7 @@ function OnboardingApp() {
               {(provided, snapshot) => (
                 <div
                   ref={provided.innerRef}
-                  style={getListStyle(grid, snapshot.isDraggingOver)}
+                  style={getListStyle(grid, el[0]?.background, snapshot.isDraggingOver)}
                   {...provided.droppableProps}
                 >
                   {el.map((item, index) => (
@@ -106,22 +106,33 @@ function OnboardingApp() {
                             provided.draggableProps.style
                           )}
                         >
-                          <div
-                            style={{
-                              display: "flex",
-                              justifyContent: "space-between"
-                            }}
-                          >
+                          <div>
+                            <div 
+                              style={{
+                                display: "flex",
+                                justifyContent: "space-between"
+                              }}
+                            >
                             {item.content}
                             <i onClick={() => {
-                                const newState = [...state];
-                                newState[ind].splice(index, 1);
-                                setState(
-                                  newState.filter(group => group.length)
-                                );
+                                  // const newState = [...state];
+                                  // newState[ind].splice(index, 1);
+                                  // setState(
+                                  //   newState.filter(group => group.length)
+                                  // );
+                                }}
+                                class="fa fa-refresh"
+                                aria-hidden="true"></i>
+                            </div>
+                            <div 
+                              style={{
+                                display: "flex",
+                                justifyContent: "space-between"
                               }}
-                              class="fa fa-trash" 
-                              aria-hidden="true"></i>
+                            >
+                              <span>{item.startDate}</span>
+                              <span>{item.endDate}</span>
+                            </div>
                           </div>
                         </div>
                       )}
