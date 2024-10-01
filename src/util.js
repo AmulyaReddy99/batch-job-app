@@ -1,15 +1,6 @@
 import moment from 'moment';
 
-export const getItemStyle = (grid, isDragging, draggableStyle) => ({
-    userSelect: "none",
-    padding: grid * 2,
-    margin: `0 0 ${grid}px 0`,
-    background: "white",
-    border: '1px solid lightgrey',
-    ...draggableStyle
-});
-
-export const getListStyle = (grid, background, isDraggingOver) => ({
+export const getListStyle = (grid, background) => ({
     background,
     border: '1px solid lightgrey',
     margin: '10px',
