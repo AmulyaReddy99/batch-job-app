@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { getItemStyle, getListStyle, getItems } from "./util";
 
-const reorder = (list, startIndex, endIndex) => {
+const reorder = (list: any, startIndex: number, endIndex: number) => {
   const result = Array.from(list);
   const [removed] = result.splice(startIndex, 1);
   result.splice(endIndex, 0, removed);
@@ -14,14 +14,14 @@ const reorder = (list, startIndex, endIndex) => {
 /**
  * Moves an item from one list to another list.
  */
-const move = (source, destination, droppableSource, droppableDestination) => {
+const move = (source: any, destination: any, droppableSource: any, droppableDestination: any) => {
   const sourceClone = Array.from(source);
   const destClone = Array.from(destination);
   const [removed] = sourceClone.splice(droppableSource.index, 1);
 
   destClone.splice(droppableDestination.index, 0, removed);
 
-  const result = {};
+  const result: any = {};
   result[droppableSource.droppableId] = sourceClone;
   result[droppableDestination.droppableId] = destClone;
 
@@ -38,7 +38,7 @@ function OnboardingApp() {
   ]);
   const [offset, setOffset] = useState(16);
 
-  function onDragEnd(result) {
+  function onDragEnd(result: { source: any; destination: any; }) {
     const { source, destination } = result;
 
     // dropped outside the list
@@ -50,11 +50,11 @@ function OnboardingApp() {
 
     if (sInd === dInd) {
       const items = reorder(state[sInd], source.index, destination.index);
-      const newState = [...state];
+      const newState: any[] = [...state];
       newState[sInd] = items;
       setState(newState);
     } else {
-      const result = move(state[sInd], state[dInd], source, destination);
+      const result: any = move(state[sInd], state[dInd], source, destination);
       const newState = [...state];
       newState[sInd] = result[sInd];
       newState[dInd] = result[dInd];
@@ -76,7 +76,7 @@ function OnboardingApp() {
       <button
         type="button"
         onClick={() => {
-          const copyState = [...state];
+          const copyState: any[] = [...state];
           copyState[0] = [...copyState[0], getItems(1, offset)]
           setState([...copyState]);
           setOffset(offset + 1);
@@ -88,7 +88,7 @@ function OnboardingApp() {
         <DragDropContext onDragEnd={onDragEnd}>
           {state.map((el, ind) => (
             <Droppable key={ind} droppableId={`${ind}`}>
-              {(provided, snapshot) => (
+              {(provided: any, snapshot: any) => (
                 <div
                   ref={provided.innerRef}
                   style={getListStyle(grid, el[0]?.background, snapshot.isDraggingOver)}
@@ -101,7 +101,7 @@ function OnboardingApp() {
                       draggableId={item.id}
                       index={index}
                     >
-                      {(provided, snapshot) => (
+                      {(provided: any, snapshot: any) => (
                         <div
                           ref={provided.innerRef}
                           {...provided.draggableProps}
@@ -127,7 +127,7 @@ function OnboardingApp() {
                                   //   newState.filter(group => group.length)
                                   // );
                                 }}
-                                class="fa fa-refresh"
+                                className="fa fa-refresh"
                                 aria-hidden="true"></i>
                             </div>
                             <div 
