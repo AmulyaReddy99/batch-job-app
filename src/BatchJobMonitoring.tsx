@@ -7,8 +7,8 @@ const grid = 8;
 
 function BatchJobMonitoring() {
   const [state, setState] = useState([
-    getItems(10, 'Todo'), 
-    getItems(5, 'Inporgress', 10), 
+    getItems(10, 'Todo', 0, '#f0f5f5'), 
+    getItems(5, 'In-Progress', 10, '#fffae6'), 
     getItems(1, 'Completed', 15, '#e6fff3'), 
     getItems(1, 'Failed', 16, '#ffe6e6')
   ]);
