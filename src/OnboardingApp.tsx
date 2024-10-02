@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { getListStyle, getItems } from "./util";
+import Menu from "./Menu";
 
 const grid = 8;
 
@@ -15,52 +16,12 @@ function OnboardingApp() {
 
   return (
     <div>
-      <div style={{ display: "flex" }}>
-          {state.map((el, ind) => <>
-                <div
-                  style={getListStyle(grid, el[0]?.background)}
-                >
-                  <p>{el[0]?.status}</p>
-                  {el.map((item, index) => (
-                    <>
-                        <div
-                          style={{
-                            userSelect: "none",
-                            padding: 10 * 2,
-                            margin: `0 0 10px 0`,
-                            background: "white",
-                            border: '1px solid lightgrey',
-                        }}
-                        >
-                          <div>
-                            <div 
-                              style={{
-                                display: "flex",
-                                justifyContent: "space-between"
-                              }}
-                            >
-                            {item.content}
-                            <i onClick={() => {}}
-                                className="fa fa-refresh"
-                                aria-hidden="true"></i>
-                            </div>
-                            <div 
-                              style={{
-                                display: "flex",
-                                justifyContent: "space-between"
-                              }}
-                            >
-                              <span>{item.startDate}</span>
-                              <span>{item.endDate}</span>
-                            </div>
-                          </div>
-                        </div>
-                    </>
-                  ))}
-                </div>
-              </>
-            )}
-        </div>
+      <nav className="navbar" style={{backgroundColor: "#001aff"}}>
+        <a className="navbar-brand" href="#">
+          <img src={require('./assets/logo.png')} height={40} style={{paddingLeft: '20px'}}/>
+        </a>
+      </nav>
+      <Menu />
       </div>
   );
 }
