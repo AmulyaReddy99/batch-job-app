@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { getListStyle, getItems } from "./util";
-import Menu from "./Menu";
 
 const grid = 8;
 
