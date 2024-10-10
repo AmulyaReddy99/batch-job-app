@@ -6,13 +6,16 @@ export const getListStyle = (grid, background) => ({
     margin: '10px',
     padding: grid,
     width: 250,
-    borderRadius: '10px'
+    borderRadius: '10px',
+    height: '85vh'
 });
+
+const jobNames = ['Batch Job 1', 'Batch Job 2', 'Batch Job 3', 'Batch Job 4']
 
 export const getItems = (count, status, offset = 0, background = 'white') =>
     Array.from({ length: count }, (v, k) => k).map(k => ({
       id: `item-${k + offset}-${new Date().getTime()}`,
-      content: `Batch Job ${k + offset}`,
+      content: jobNames[k],
       background,
       startDate: moment(new Date()).format('DD-MM-YY hh:mm:ss'),
       endDate: moment(new Date()).format('DD-MM-YY hh:mm:ss'),

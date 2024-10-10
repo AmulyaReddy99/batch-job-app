@@ -45,7 +45,7 @@ module.exports = (_, argv) => ({
       filename: "job-monitoring-app.js",
       remotes: {},
       exposes: {
-        "./MonitoringApp": "./src/App.jsx",
+        "./MonitoringApp": "./src/App.tsx",
       },
       shared: {
         ...deps,

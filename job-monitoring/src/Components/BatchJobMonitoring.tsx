@@ -6,10 +6,10 @@ const grid = 8;
 
 function BatchJobMonitoring() {
   const [state, setState] = useState([
-    getItems(10, 'Todo', 0, '#f0f5f5'), 
-    getItems(5, 'In-Progress', 10, '#fffae6'), 
-    getItems(1, 'Completed', 15, '#e6fff3'), 
-    getItems(1, 'Failed', 16, '#ffe6e6')
+    getItems(1, 'Todo', 0, '#f0f5f5'), 
+    getItems(1, 'In-Progress', 1, '#fffae6'), 
+    getItems(1, 'Completed', 2, '#e6fff3'), 
+    getItems(1, 'Failed', 3, '#ffe6e6')
   ]);
   const [offset, setOffset] = useState(16);
 
@@ -29,7 +29,7 @@ function BatchJobMonitoring() {
                             margin: `0 0 10px 0`,
                             background: "white",
                             border: '1px solid lightgrey',
-                            borderRadius: '10px',
+                            borderRadius: '10px'
                         }}
                         >
                           <div>

@@ -45,7 +45,7 @@ module.exports = (_, argv) => ({
       filename: "app-onboarding-app.js",
       remotes: {},
       exposes: {
-        "./OnboardingApp": "./src/App.jsx",
+        "./OnboardingApp": "./src/App.tsx",
       },
       shared: {
         ...deps,
