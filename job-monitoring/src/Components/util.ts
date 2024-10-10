@@ -10,7 +10,7 @@ export const getListStyle = (grid, background) => ({
     height: '85vh'
 });
 
-const jobNames = ['Batch Job 1', 'Batch Job 2', 'Batch Job 3', 'Batch Job 4']
+const jobNames = ['ATS', 'Workflow', 'Sailpoint', 'Quick sight']
 
 export const getItems = (count, status, offset = 0, background = 'white') =>
     Array.from({ length: count }, (v, k) => k).map(k => ({
